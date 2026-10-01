@@ -1,0 +1,67 @@
+@model HospitalAppointment.Models.Doctor
+
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+<h1>Book Hospital Appointment</h1>
+
+<form method="post">
+
+    <!-- Hidden field sends the DoctorId with the form. -->
+    <input type="hidden"
+           name="DoctorId"
+           value="@Model.DoctorId" />
+
+    <div class="mb-3">
+
+        <!-- Label for patient name. -->
+        <label class="form-label">
+            Patient Name
+        </label>
+
+        <!-- Input field for patient name. -->
+        <input type="text"
+               name="PatientName"
+               class="form-control"
+               required />
+    </div>
+
+
+    <div class="mb-3">
+
+        <!-- Label for specialization. -->
+        <label class="form-label">
+            Specialization
+        </label>
+
+        <!-- Input field for specialization. -->
+        <input type="text"
+               name="Specialization"
+               value="@Model.Specialization"
+               class="form-control"
+               required />
+    </div>
+
+
+    <div class="mb-3">
+
+        <!-- Display selected doctor ID. -->
+        <label class="form-label">
+            Doctor ID
+        </label>
+
+        <input type="text"
+               value="@Model.DoctorId"
+               class="form-control"
+               readonly />
+    </div>
+
+
+    <!-- Submit appointment button. -->
+    <button type="submit"
+            class="btn btn-success">
+        Submit Appointment
+    </button>
+
+</form>

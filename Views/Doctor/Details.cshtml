@@ -1,0 +1,65 @@
+@model HospitalAppointment.Models.Doctor
+
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<h1>Doctor Details</h1>
+
+<div class="card" style="width: 500px;">
+
+    <div class="card-body">
+
+        <!-- Display Doctor ID. -->
+        <h4>
+            Doctor ID: @Model.DoctorId
+        </h4>
+
+        <!-- Display doctor name. -->
+        <p>
+            <strong>Doctor Name:</strong>
+            @Model.DoctorName
+        </p>
+
+        <!-- Display specialization. -->
+        <p>
+            <strong>Specialization:</strong>
+            @Model.Specialization
+        </p>
+
+        <!-- Display experience. -->
+        <p>
+            <strong>Experience:</strong>
+            @Model.Experience years
+        </p>
+
+        <!-- Display consultation fee. -->
+        <p>
+            <strong>Consultation Fee:</strong>
+            ₹@Model.ConsultationFee
+        </p>
+
+        <!-- Display total consultation charge. -->
+        <p>
+            <strong>Total Consultation Charge:</strong>
+            ₹@ViewBag.TotalCharge
+        </p>
+
+        <!-- Open appointment page. -->
+        <a asp-controller="Doctor"
+           asp-action="Appointment"
+           asp-route-id="@Model.DoctorId"
+           class="btn btn-success">
+            Book Appointment
+        </a>
+
+        <!-- Return to doctor list. -->
+        <a asp-controller="Doctor"
+           asp-action="Index"
+           class="btn btn-secondary">
+            Back
+        </a>
+
+    </div>
+
+</div>

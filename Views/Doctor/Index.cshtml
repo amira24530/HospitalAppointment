@@ -1,0 +1,81 @@
+@model List<HospitalAppointment.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Doctor List";
+}
+
+<h1>Hospital Doctor List</h1>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Doctor ID</th>
+            <th>Doctor Name</th>
+            <th>Specialization</th>
+            <th>Experience</th>
+            <th>Consultation Fee</th>
+            <th>Total Charge</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var doctor in Model)
+        {
+            <tr>
+
+                <!-- Display Doctor ID. -->
+                <td>
+                    @doctor.DoctorId
+                </td>
+
+                <!-- Display Doctor Name. -->
+                <td>
+                    @doctor.DoctorName
+                </td>
+
+                <!-- Display Doctor Specialization. -->
+                <td>
+                    @doctor.Specialization
+                </td>
+
+                <!-- Display Doctor Experience. -->
+                <td>
+                    @doctor.Experience years
+                </td>
+
+                <!-- Display Consultation Fee. -->
+                <td>
+                    ₹@doctor.ConsultationFee
+                </td>
+
+                <!-- Display total charge after adding ₹100 service charge. -->
+                <td>
+                    ₹@(doctor.ConsultationFee + 100)
+                </td>
+
+                <!-- Pass DoctorId through the query string. -->
+                <td>
+                    <a href="/Doctor/Details?id=@doctor.DoctorId"
+                       class="btn btn-primary">
+                        View Details
+                    </a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<hr />
+
+<!-- Open the asynchronous JSONPlaceholder posts page. -->
+<a asp-controller="Doctor"
+   asp-action="Posts"
+   class="btn btn-info">
+    View JSONPlaceholder Posts
+</a>

@@ -1,0 +1,46 @@
+@model List<HospitalAppointment.Controllers.Post>
+
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h1>Posts from JSONPlaceholder</h1>
+
+<!-- Explanation of the data displayed on this page. -->
+<p class="api-note">
+    These are the title values returned by the JSONPlaceholder API.
+    My program retrieves them asynchronously using HttpClient and
+    displays the returned ID and title.
+</p>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Post ID</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var post in Model)
+        {
+            <tr>
+
+                <!-- Display the post ID. -->
+                <td>
+                    @post.id
+                </td>
+
+                <!-- Display the post title. -->
+                <td>
+                    @post.title
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
